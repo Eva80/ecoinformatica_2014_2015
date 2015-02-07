@@ -1,0 +1,81 @@
+<title>Maxent model for Quercus_pyrenaica</title>
+<CENTER><H1>Maxent model for Quercus_pyrenaica</H1></CENTER>
+<br> This page contains some analysis of the Maxent model for Quercus_pyrenaica, created Sat Feb 07 17:31:52 CET 2015 using Maxent version 3.3.3k.  If you would like to do further analyses, the raw data used here is linked to at the end of this page.<br>
+<br><HR><H2>Analysis of omission/commission</H2>
+The following picture shows the omission rate and predicted area as a function of the cumulative threshold.  The omission rate is is calculated both on the training presence records, and (if test data are used) on the test records.  The omission rate should be close to the predicted omission, because of the definition of the cumulative threshold.
+<br><img src="plots\Quercus_pyrenaica_omission.png"><br>
+<br> The next picture is the receiver operating characteristic (ROC) curve for the same data.  Note that the specificity is defined using predicted area, rather than true commission (see the paper by Phillips, Anderson and Schapire cited on the help page for discussion of what this means).  This implies that the maximum achievable AUC is less than 1.  If test data is drawn from the Maxent distribution itself, then the maximum possible test AUC would be 0.991 rather than 1; in practice the test AUC may exceed this bound.
+<br><img src="plots\Quercus_pyrenaica_roc.png"><br>
+<br>
+<br>
+Some common thresholds and corresponding omission rates are as follows.  If test data are available, binomial probabilities are calculated exactly if the number of test samples is at most 25, otherwise using a normal approximation to the binomial.  These are 1-sided p-values for the null hypothesis that test points are predicted no better than by a random prediction with the same fractional predicted area.  The "Balance" threshold minimizes 6 * training omission rate + .04 * cumulative threshold + 1.6 * fractional predicted area.<br>
+<br><table border cols=4 cellpadding=3><tr><th>Cumulative threshold</th><th>Logistic threshold</th><th>Description</th><th>Fractional predicted area</th><th>Training omission rate</th><tr align=center><td>1.000</td><td>0.005</td><td>Fixed cumulative value 1</td><td>0.060</td><td>0.000</td><tr align=center><td>5.000</td><td>0.045</td><td>Fixed cumulative value 5</td><td>0.026</td><td>0.000</td><tr align=center><td>10.000</td><td>0.117</td><td>Fixed cumulative value 10</td><td>0.016</td><td>0.000</td><tr align=center><td>11.688</td><td>0.137</td><td>Minimum training presence</td><td>0.015</td><td>0.000</td><tr align=center><td>30.163</td><td>0.342</td><td>10 percentile training presence</td><td>0.006</td><td>0.100</td><tr align=center><td>11.688</td><td>0.137</td><td>Equal training sensitivity and specificity</td><td>0.015</td><td>0.000</td><tr align=center><td>11.688</td><td>0.137</td><td>Maximum training sensitivity plus specificity</td><td>0.015</td><td>0.000</td><tr align=center><td>1.105</td><td>0.006</td><td>Balance training omission, predicted area and threshold value</td><td>0.058</td><td>0.000</td><tr align=center><td>11.688</td><td>0.137</td><td>Equate entropy of thresholded and original distributions</td><td>0.015</td><td>0.000</td></table><br>
+<br><HR><H2>Pictures of the model</H2>
+This is a representation of the Maxent model for Quercus_pyrenaica.  Warmer colors show areas with better predicted conditions.  White dots show the presence locations used for training, while violet dots show test locations.  Click on the image for a full-size version.<br>
+<br><a href = "plots/Quercus_pyrenaica.png"> <img src="plots/Quercus_pyrenaica.png" width=600></a><br>
+<br>Click <a href=Quercus_pyrenaica_explain.bat type=application/bat>here<a> to interactively explore this prediction using the Explain tool.  If clicking from your browser does not succeed in starting the tool, try running the script in C:\Users\Eva\Desktop\Producto 3\resultados\Quercus_pyrenaica_explain.bat directly.  This tool requires the environmental grids to be small enough that they all fit in memory.<br><br>
+This is the projection of the Maxent model for Quercus_pyrenaica onto the environmental variables in C:\Users\Eva\Desktop\Producto 3\variables\futuro_B2\2040.  Warmer colors show areas with better predicted conditions.  White dots show the presence locations used for training, while violet dots show test locations.  Click on the image for a full-size version.<br>
+<br><a href = "plots/Quercus_pyrenaica_2040.png"> <img src="plots/Quercus_pyrenaica_2040.png" width=600></a><br>
+<br>Click <a href=Quercus_pyrenaica_2040_explain.bat type=application/bat>here<a> to interactively explore this prediction using the Explain tool.  If clicking from your browser does not succeed in starting the tool, try running the script in C:\Users\Eva\Desktop\Producto 3\resultados\Quercus_pyrenaica_2040_explain.bat directly.  This tool requires the environmental grids to be small enough that they all fit in memory.<br><br>
+The following picture shows where the prediction is most affected by variables being outside their training range, while projecting the Maxent model onto the environmental variables in C:\Users\Eva\Desktop\Producto 3\variables\futuro_B2\2040.  The values shown in the picture give the absolute difference in predictions when using vs not using clamping.  (Clamping means that environmental variables and features are restricted to the range of values encountered during training.)  Warmer colors show areas where the treatment of variable values outside their training ranges is likely to have a large effect on predicted suitability.
+<br><a href = "plots/Quercus_pyrenaica_2040_clamping.png"> <img src="plots/Quercus_pyrenaica_2040_clamping.png" width=600></a><br>
+<br>The following two pictures compare the environmental similarity of variables in 2040 to the environmental data used for training the model.  In the first picture (MESS), areas in red have one or more environmental variables outside the range present in the training data, so predictions in those areas should be treated with strong caution.  The second picture (MoD) shows the most dissimilar variable, i.e., the one that is furthest outside its training range.  For details, see Elith et al., Methods in Ecology and Evolution, 2010
+<br><a href = "Quercus_pyrenaica_2040_novel.png"> <img src="Quercus_pyrenaica_2040_novel.png" width=600></a><br>
+<br><a href = "Quercus_pyrenaica_2040_novel_limiting.png"> <img src="Quercus_pyrenaica_2040_novel_limiting.png" width=600></a><br>
+<br><HR><H2>Response curves</H2>
+<br>These curves show how each environmental variable affects the Maxent prediction.
+The 
+curves show how the logistic prediction changes as each environmental variable is varied, keeping all other environmental variables at their average sample value. Click on a response curve to see a larger version.  Note that the curves can be hard to interpret if you have strongly correlated variables, as the model may depend on the correlations in ways that are not evident in the curves.  In other words, the curves show the marginal effect of changing exactly one variable, whereas the model may take advantage of sets of variables changing together.<br><br>
+<a href = "plots/Quercus_pyrenaica_PA.png"> <img src="plots/Quercus_pyrenaica_PA_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_PV.png"> <img src="plots/Quercus_pyrenaica_PV_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMNI.png"> <img src="plots/Quercus_pyrenaica_TMNI_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMNV.png"> <img src="plots/Quercus_pyrenaica_TMNV_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMXI.png"> <img src="plots/Quercus_pyrenaica_TMXI_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMXV.png"> <img src="plots/Quercus_pyrenaica_TMXV_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_huella_humana.png"> <img src="plots/Quercus_pyrenaica_huella_humana_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_sol_rad_sum.png"> <img src="plots/Quercus_pyrenaica_sol_rad_sum_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_topo_pend.png"> <img src="plots/Quercus_pyrenaica_topo_pend_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_topo_posic.png"> <img src="plots/Quercus_pyrenaica_topo_posic_thumb.png"></a>
+<br>
+<br>In contrast to the above marginal response curves, each of the following curves represents a different model, namely, a Maxent model created using only the corresponding variable.  These plots reflect the dependence of predicted suitability both on the selected variable and on dependencies induced by correlations between the selected variable and other variables.  They may be easier to interpret if there are strong correlations between variables.<br><br>
+<a href = "plots/Quercus_pyrenaica_PA_only.png"> <img src="plots/Quercus_pyrenaica_PA_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_PV_only.png"> <img src="plots/Quercus_pyrenaica_PV_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMNI_only.png"> <img src="plots/Quercus_pyrenaica_TMNI_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMNV_only.png"> <img src="plots/Quercus_pyrenaica_TMNV_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMXI_only.png"> <img src="plots/Quercus_pyrenaica_TMXI_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_TMXV_only.png"> <img src="plots/Quercus_pyrenaica_TMXV_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_huella_humana_only.png"> <img src="plots/Quercus_pyrenaica_huella_humana_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_sol_rad_sum_only.png"> <img src="plots/Quercus_pyrenaica_sol_rad_sum_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_topo_pend_only.png"> <img src="plots/Quercus_pyrenaica_topo_pend_only_thumb.png"></a>
+<a href = "plots/Quercus_pyrenaica_topo_posic_only.png"> <img src="plots/Quercus_pyrenaica_topo_posic_only_thumb.png"></a>
+<br>
+<br><HR><H2>Analysis of variable contributions</H2><br>
+The following table gives estimates of relative contributions of the environmental variables to the Maxent model.  To determine the first estimate, in each iteration of the training algorithm, the increase in regularized gain is added to the contribution of the corresponding variable, or subtracted from it if the change to the absolute value of lambda is negative.  For the second estimate, for each environmental variable in turn, the values of that variable on training presence and background data are randomly permuted.  The model is reevaluated on the permuted data, and the resulting drop in training AUC is shown in the table, normalized to percentages.  As with the variable jackknife, variable contributions should be interpreted with caution when the predictor variables are correlated.<br>
+<br><table border cols=3><tr><th>Variable</th><th>Percent contribution</th><th>Permutation importance</th><tr align=right><td>TMXV</td><td>46.5</td><td>28.5</td></tr><tr align=right><td>topo_posic</td><td>25.3</td><td>1.6</td></tr><tr align=right><td>TMXI</td><td>15.3</td><td>0.1</td></tr><tr align=right><td>TMNV</td><td>5.3</td><td>55.8</td></tr><tr align=right><td>PV</td><td>3.6</td><td>7.5</td></tr><tr align=right><td>TMNI</td><td>2.8</td><td>5.6</td></tr><tr align=right><td>sol_rad_sum</td><td>0.5</td><td>0.1</td></tr><tr align=right><td>PA</td><td>0.4</td><td>0.6</td></tr><tr align=right><td>topo_pend</td><td>0.2</td><td>0.1</td></tr><tr align=right><td>huella_humana</td><td>0.2</td><td>0</td></tr></table><br><br>
+<br><HR><H2>Raw data outputs and control parameters</H2><br>
+The data used in the above analysis is contained in the next links.  Please see the Help button for more information on these.<br>
+<a href = "Quercus_pyrenaica.asc">The model applied to the training environmental layers</a><br>
+<a href = "Quercus_pyrenaica_2040.asc">The model applied to the environmental layers in C:\Users\Eva\Desktop\Producto 3\variables\futuro_B2\2040</a><br>
+<a href = "Quercus_pyrenaica.lambdas">The coefficients of the model</a><br>
+<a href = "Quercus_pyrenaica_omission.csv">The omission and predicted area for varying cumulative and raw thresholds</a><br>
+<a href = "Quercus_pyrenaica_samplePredictions.csv">The prediction strength at the training and (optionally) test presence sites</a><br>
+<a href = "maxentResults.csv">Results for all species modeled in the same Maxent run, with summary statistics and (optionally) jackknife results</a><br>
+<br><br>
+Regularized training gain is 4.204, training AUC is 0.997, unregularized training gain is 4.589.<br>
+Algorithm terminated after 500 iterations (6 seconds).<br>
+<br>
+The follow settings were used during the run:<br>
+30 presence records used for training.<br>
+10027 points used to determine the Maxent distribution (background points and presence points).<br>
+Environmental layers used (all continuous): PA PV TMNI TMNV TMXI TMXV huella_humana sol_rad_sum topo_pend topo_posic<br>
+Regularization values: linear/quadratic/product: 0.250, categorical: 0.250, threshold: 1.700, hinge: 0.500<br>
+Feature types used: hinge linear quadratic<br>
+responsecurves: true<br>
+outputdirectory: C:\Users\Eva\Desktop\Producto 3\resultados<br>
+projectionlayers: C:\Users\Eva\Desktop\Producto 3\variables\futuro_B2\2040<br>
+samplesfile: C:\Users\Eva\Desktop\Producto 3\presencia\presencia_q_pyrenaica.csv<br>
+environmentallayers: C:\Users\Eva\Desktop\Producto 3\variables\presente<br>
+askoverwrite: false<br>
+Command line used: <br>
+<br>
+Command line to repeat this species model: java density.MaxEnt nowarnings noprefixes -E "" -E Quercus_pyrenaica responsecurves "outputdirectory=C:\Users\Eva\Desktop\Producto 3\resultados" "projectionlayers=C:\Users\Eva\Desktop\Producto 3\variables\futuro_B2\2040" "samplesfile=C:\Users\Eva\Desktop\Producto 3\presencia\presencia_q_pyrenaica.csv" "environmentallayers=C:\Users\Eva\Desktop\Producto 3\variables\presente" noaskoverwrite<br>
